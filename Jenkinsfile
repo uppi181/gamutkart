@@ -14,7 +14,7 @@ pipeline {
  
         stage('Deployment') {
 	   steps {
-		scp target/gamutkart.war root@172.31.82.203:/root/distroys/apache-tomcat-9.0.91/webapps
+		sh 'scp target/gamutkart.war root@172.31.82.203:/root/distroys/apache-tomcat-9.0.91/webapps'
 	}
     }
 }
