@@ -13,24 +13,7 @@ pipeline {
 		}
 	}	
  
-	stage ('Compile'){
-	        steps {
-			sh 'mvn clean compile'
-                }
-	}
-
-	stage('Run Tests') {
-	    steps {
-	       sh 'mvn test'
-	    }
-	}
-
-        stage('Package as WAR') {
-            steps {
-                sh 'mvn package'
-            }
-        }
-	stage('Deployment') {
+        stage('Deployment') {
 	   steps {
 		scp target/gamutkart.war root@172.31.82.203:/root/distroys/apache-tomcat-9.0.91/webapps
 	}
